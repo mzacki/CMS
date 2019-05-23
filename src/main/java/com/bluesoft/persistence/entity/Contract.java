@@ -2,6 +2,7 @@ package com.***REMOVED***.persistence.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -28,9 +29,11 @@ public class Contract {
     private String system;
 
     @Column(name="data_od")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
     @Column(name="data_do")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
 
     @Column(name="wplywy")
@@ -42,7 +45,7 @@ public class Contract {
     @Column(name="aktywna")
     private boolean enabled;
 
-    private Contract() {}
+    public Contract() {}
 
     public Contract(String contractNumber, String system, LocalDate startDate, LocalDate endDate, long income, String range, boolean enabled) {
         this.contractNumber = contractNumber;

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Contract form | IT-SMS</title>
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+    <h3>Contact list</h3>
+    <hr>
+    <p class="h4 mb-4">Save contract</p>
+    <form action="#" th:action="@{/save}" th:object="${contract}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <input type="text" th:field="*{contractNumber}" class="form-control mb-4 col-4"
+               placeholder="Enter contract number..." />
+        <input type="text" th:field="*{system}" class="form-control mb-4 col-4" placeholder="Enter system name..." />
+        <input type="date" th:field="*{startDate}" class="form-control mb-4 col-4" placeholder="Enter start date" />
+        <input type="date" th:field="*{endDate}" class="form-control mb-4 col-4"
+               placeholder="Enter end date" />
+        <input type="text" th:field="*{income}" class="form-control mb-4 col-4"
+               placeholder="Enter income" />
+        <input type="text" th:field="*{range}" class="form-control mb-4 col-4"
+               placeholder="Enter income range" />
+        <input type="text" th:field="*{enabled}" class="form-control mb-4 col-4"
+               placeholder="false / true" />
+        <button type="submit" class="btn btn-info col-2">Save</button>
+    </form>
+    <hr>
+    <a th:href="@{/list}">Back to the list</a>
+</div>
+</body>
+</html>

@@ -14,9 +14,13 @@ public class Main {
 
         ContractDAO contractDAO = new ContractDAO();
 
-        Contract contract = new Contract("123/123", "Test", LocalDate.now(), LocalDate.now(), 123, "monthly", true);
+        Contract contract = new Contract("122/19", "Test2", LocalDate.now(), LocalDate.now(), 123, "monthly", true);
+        Contract contract2 = new Contract("124/19", "Nasz", LocalDate.now(), LocalDate.now(), 3342, "monthly", false);
+        Contract contract3 = new Contract("125/19", "Ich", LocalDate.now(), LocalDate.now(), 0, "yearly", true);
+        contractDAO.save(contract);
+        contractDAO.save(contract2);
+        contractDAO.save(contract3);
 
-        contractDAO.saveContract(contract);
 
         List<Contract> contracts = contractDAO.getContracts();
 
