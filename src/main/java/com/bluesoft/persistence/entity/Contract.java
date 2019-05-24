@@ -17,6 +17,7 @@ import java.time.LocalDate;
 @Table(name="umowy")
 public class Contract {
 
+    // redundant name="id" for the sake of clarity
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -55,5 +56,20 @@ public class Contract {
         this.income = income;
         this.range = range;
         this.enabled = enabled;
+    }
+
+    // add toString() for debugging purposes
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "id=" + id +
+                ", contractNumber='" + contractNumber + '\'' +
+                ", system='" + system + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", income=" + income +
+                ", range='" + range + '\'' +
+                ", enabled=" + enabled +
+                '}';
     }
 }

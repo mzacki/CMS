@@ -26,6 +26,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private ApplicationContext applicationContext;
 
+    // Thymeleaf configuration for Spring MVC according to documentation
     @Bean
     public SpringResourceTemplateResolver templateResolver(){
         // SpringResourceTemplateResolver automatically integrates with Spring's own
@@ -64,6 +65,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.viewResolver(resolver);
     }
 
+    // Loads bootstrap and other resources from correct target location
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry

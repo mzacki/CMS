@@ -1,7 +1,7 @@
 package com.***REMOVED***.controller;
 
-import com.***REMOVED***.persistence.dao.ContractDAO;
 import com.***REMOVED***.persistence.entity.Contract;
+import com.***REMOVED***.persistence.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,19 +17,21 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    private ContractDAO contractDAO;
+    private ContractService contractService;
 
     @Autowired
-    public MainController(ContractDAO contractDAO) {
-        this.contractDAO = contractDAO;
+    public MainController(ContractService contractService) {
+        this.contractService = contractService;
     }
 
+    // test only, to be removed
     @ResponseBody
     @GetMapping("/greetings")
     public String greetings() {
         return "greetings";
     }
 
+    // test only, to be removed
     @GetMapping("test")
     public String test(Model model) {
 
@@ -41,7 +43,7 @@ public class MainController {
     @GetMapping("list")
     public String listContracts(Model model) {
 
-        List<Contract> contracts = contractDAO.getContracts();
+        List<Contract> contracts = contractService.getAll();
         model.addAttribute("contracts", contracts);
 
         return "list-contracts";
@@ -59,7 +61,7 @@ public class MainController {
     @GetMapping("showUpdateForm")
     public String showUpdateForm(@RequestParam("id") long id, Model model) {
 
-        Contract contract = contractDAO.getContractById(id);
+        Contract contract = contractService.getById(id);
         model.addAttribute("contract", contract);
         return "contract-form";
     }
@@ -67,15 +69,14 @@ public class MainController {
     @PostMapping("save")
     public String saveContract(@ModelAttribute("contract") Contract contract) {
 
-        contractDAO.save(contract);
-
+        contractService.save(contract);
         return "redirect:/list";
     }
 
     @GetMapping("delete")
     public String delete(@RequestParam("id") long id) {
 
-        contractDAO.delete(id);
+        contractService.delete(id);
         return "redirect:/list";
     }
 

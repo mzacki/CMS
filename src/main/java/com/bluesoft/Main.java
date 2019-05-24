@@ -1,6 +1,6 @@
 package com.***REMOVED***;
 
-import com.***REMOVED***.persistence.dao.ContractDAO;
+import com.***REMOVED***.persistence.dao.ContractDAOImplementation;
 import com.***REMOVED***.persistence.entity.Contract;
 
 import java.time.LocalDate;
@@ -12,17 +12,17 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        ContractDAO contractDAO = new ContractDAO();
+        ContractDAOImplementation contractDAOImplementation = new ContractDAOImplementation();
 
         Contract contract = new Contract("122/19", "Test2", LocalDate.now(), LocalDate.now(), 123, "monthly", true);
         Contract contract2 = new Contract("124/19", "Nasz", LocalDate.now(), LocalDate.now(), 3342, "monthly", false);
         Contract contract3 = new Contract("125/19", "Ich", LocalDate.now(), LocalDate.now(), 0, "yearly", true);
-        contractDAO.save(contract);
-        contractDAO.save(contract2);
-        contractDAO.save(contract3);
+        contractDAOImplementation.saveContract(contract);
+        contractDAOImplementation.saveContract(contract2);
+        contractDAOImplementation.saveContract(contract3);
 
 
-        List<Contract> contracts = contractDAO.getContracts();
+        List<Contract> contracts = contractDAOImplementation.getContracts();
 
         contracts.forEach(s -> System.out.println(s.getContractNumber()));
 

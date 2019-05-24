@@ -9,9 +9,17 @@ import org.hibernate.service.ServiceRegistry;
 
 import java.util.Properties;
 
+/**
+ * Created by Matt on 24.05.2019 at 18:34.
+ */
 
 public class HibernateUtil {
 
+    /*SessionFactory - reads the hibernate config file or config settings,
+    * creates session objects,
+    * heavy-weight object to be created only once.
+    * Session - short-lived object retrieved from SessionFactory wraps a jdbc connection,
+    * main object used to save & retrieve objects from DB */
     private static SessionFactory sessionFactory;
 
     public static SessionFactory getSessionFactory() {
@@ -40,13 +48,9 @@ public class HibernateUtil {
             } catch (Exception e) {
 
                 e.printStackTrace();
-
             }
-
         }
 
         return sessionFactory;
-
     }
-
 }
