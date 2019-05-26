@@ -14,43 +14,48 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name="umowy")
+@Table(name = "umowy")
 public class Contract {
 
     // redundant name="id" for the sake of clarity
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private long id;
 
-    @Column(name="numer_umowy")
+    @Column(name = "numer_umowy")
     private String contractNumber;
 
-    @Column(name="system")
-    private String system;
+    @Column(name = "system")
+    private String systemName;
 
-    @Column(name="data_od")
+    @Column(name = "data_od")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
-    @Column(name="data_do")
+    @Column(name = "data_do")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
 
-    @Column(name="wplywy")
+    @Column(name = "wplywy")
     private long income;
 
-    @Column(name="skala")
+    @Column(name = "skala")
     private String range;
 
-    @Column(name="aktywna")
+    @Column(name = "aktywna")
     private boolean enabled;
 
-    public Contract() {}
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "system_id")
+    private Software software;
 
-    public Contract(String contractNumber, String system, LocalDate startDate, LocalDate endDate, long income, String range, boolean enabled) {
+    public Contract() {
+    }
+
+    public Contract(String contractNumber, String systemName, LocalDate startDate, LocalDate endDate, long income, String range, boolean enabled) {
         this.contractNumber = contractNumber;
-        this.system = system;
+        this.systemName = systemName;
         this.startDate = startDate;
         this.endDate = endDate;
         this.income = income;
@@ -58,13 +63,14 @@ public class Contract {
         this.enabled = enabled;
     }
 
+
     // add toString() for debugging purposes
     @Override
     public String toString() {
         return "Contract{" +
                 "id=" + id +
                 ", contractNumber='" + contractNumber + '\'' +
-                ", system='" + system + '\'' +
+                ", systemName='" + systemName + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", income=" + income +

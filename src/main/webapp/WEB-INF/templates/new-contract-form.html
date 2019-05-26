@@ -18,13 +18,6 @@
         <label for="contractNumber">Contract number</label>
         <input id="contractNumber" type="text" th:field="*{contractNumber}" class="form-control mb-4 col-4"
                placeholder="Enter contract number..."  />
-        <label for="softwareName">Software name</label>
-        <input id="softwareName" type="text" th:if="${contract?.software?.name != null}"
-               th:field="*{software.name}"
-               class="form-control mb-4 col-4"
-               placeholder="Enter software name..." readonly="readonly"/>
-        <small id="noAuth" class="form-text text-muted">You have no authority to edit this field.</small>
-        <br><br>
         <label for="startDate">Contract begin date</label>
         <input id="startDate" type="date" th:field="*{startDate}" class="form-control mb-4 col-4"
                placeholder="Enter start date" />
@@ -40,16 +33,15 @@
         <label for="enabled">Active</label>
         <input id="enabled" type="text" th:field="*{enabled}" class="form-control mb-4 col-4"
                placeholder="false / true" />
-        <small id="disable" class="form-text text-muted">You can also disable contracts using DISABLE button</small>
-        <br><br>
-        <!-- hidden values for Software entity - not to be updated by the ***REMOVED*** -->
-        <input th:if="${contract?.software?.id != null}" type="hidden" th:field="*{software.id}" />
-        <input th:if="${contract?.software?.description != null}" type="hidden"
-               th:field="*{software.description}" />
-        <input th:if="${contract?.software?.technology != null}" type="hidden"
-               th:field="*{software.technology}"  />
-        <input th:if="${contract?.software?.owner != null}" type="hidden" th:field="*{software.owner}"/>
-        <button type="submit" class="btn btn-info col-2">Update</button>
+        <hr>
+        <!--<input th:field="*{software.id}" />
+        <label for="softwareName">Software name</label>
+        <input id="softwareName" type="text" th:field="*{software.name}" class="form-control mb-4 col-4"
+               placeholder="Enter software name..." />
+        <input th:field="*{software.description}" />
+        <input th:field="*{software.technology}" />
+        <input th:field="*{software.owner}" />-->
+        <button type="submit" class="btn btn-info col-2">Save</button>
     </form>
     <hr>
     <a th:href="@{/list}">Back to the list</a>

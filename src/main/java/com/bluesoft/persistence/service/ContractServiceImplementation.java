@@ -27,6 +27,11 @@ public class ContractServiceImplementation implements ContractService {
     }
 
     @Override
+    public List<Contract> getEnabled() {
+        return contractDAO.getActiveContracts();
+    }
+
+    @Override
     public void save(Contract contract) {
         contractDAO.saveContract(contract);
     }

@@ -1,13 +1,14 @@
 package com.***REMOVED***.controller;
 
 import com.***REMOVED***.persistence.entity.Contract;
+import com.***REMOVED***.persistence.entity.Software;
 import com.***REMOVED***.persistence.service.ContractService;
+import com.***REMOVED***.persistence.service.SoftwareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -18,26 +19,17 @@ import java.util.List;
 public class MainController {
 
     private ContractService contractService;
+    private SoftwareService softwareService;
 
     @Autowired
-    public MainController(ContractService contractService) {
+    public MainController(ContractService contractService, SoftwareService softwareService) {
         this.contractService = contractService;
+        this.softwareService = softwareService;
     }
 
-    // test only, to be removed
-    @ResponseBody
-    @GetMapping("/greetings")
-    public String greetings() {
-        return "greetings";
-    }
-
-    // test only, to be removed
-    @GetMapping("test")
-    public String test(Model model) {
-
-        LocalDateTime dateTime = LocalDateTime.now();
-        model.addAttribute("Date", dateTime);
-        return "test";
+    @GetMapping("about")
+    public String about() {
+        return "about";
     }
 
     @GetMapping("list")
@@ -49,13 +41,42 @@ public class MainController {
         return "list-contracts";
     }
 
+    @GetMapping("listActive")
+    public String listActive(Model model) {
+
+        List<Contract> contracts = contractService.getEnabled();
+        model.addAttribute("contracts", contracts);
+
+        return "list-contracts";
+    }
+
+    @GetMapping("systemDetails")
+    public String systemDetails(Model model, long id) {
+
+        //Software software = softwareService.getDetailedSoftware(id);
+        //model.addAttribute("system", software);
+        Contract contract = contractService.getById(id);
+        model.addAttribute("contract", contract);
+
+
+        return "system-details";
+    }
+
+    @GetMapping("systems")
+    public String listSystems(Model model) {
+
+        List<Software> systems = softwareService.getAll();
+        model.addAttribute("systems", systems);
+
+        return "list-systems";
+    }
+
     @GetMapping("showAddForm")
     public String showAddForm(Model model) {
 
         Contract contract = new Contract();
         model.addAttribute("contract", contract);
-
-        return "contract-form";
+        return "new-contract-form";
     }
 
     @GetMapping("showUpdateForm")
@@ -69,6 +90,15 @@ public class MainController {
     @PostMapping("save")
     public String saveContract(@ModelAttribute("contract") Contract contract) {
 
+        contractService.save(contract);
+        return "redirect:/list";
+    }
+
+    @GetMapping("disable")
+    public String disableContract(@RequestParam long id) {
+
+        Contract contract = contractService.getById(id);
+        contract.setEnabled(false);
         contractService.save(contract);
         return "redirect:/list";
     }

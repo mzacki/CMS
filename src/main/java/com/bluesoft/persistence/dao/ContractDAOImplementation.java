@@ -21,9 +21,17 @@ public class ContractDAOImplementation implements ContractDAO {
     public List<Contract> getContracts() {
 
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("from Contract", Contract.class).list();
+            return session.createQuery("from Contract", Contract.class).getResultList();
         }
 
+    }
+
+    @Override
+    public List<Contract> getActiveContracts() {
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery("from Contract c where c.enabled=true", Contract.class).getResultList();
+        }
     }
 
     @Override

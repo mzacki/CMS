@@ -10,6 +10,7 @@ import java.util.List;
 public interface ContractService {
 
     List<Contract> getAll();
+    List<Contract> getEnabled();
     void save(Contract contract);
     Contract getById(long id);
     void delete(long id);

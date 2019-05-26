@@ -9,11 +9,13 @@ import javax.persistence.*;
  * Created by Matt on 24.05.2019 at 19:13.
  */
 
+// Class name changed from System to Software in order to avoid clashes with java.lang.System
+
 @Getter
 @Setter
 @Entity
 @Table(name="systemy")
-public class System {
+public class Software {
 
     // redundant name="id" for the sake of clarity
     @Id
@@ -33,9 +35,9 @@ public class System {
     @Column(name="posiadacz")
     private String owner;
 
-    public System() {}
+    public Software() {}
 
-    public System(String name, String description, String technology, String owner) {
+    public Software(String name, String description, String technology, String owner) {
         this.name = name;
         this.description = description;
         this.technology = technology;
@@ -45,7 +47,7 @@ public class System {
     // add toString() for debugging purposes
     @Override
     public String toString() {
-        return "System{" +
+        return "Software{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

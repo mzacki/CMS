@@ -11,6 +11,7 @@ import java.util.List;
 public interface ContractDAO {
 
     List<Contract> getContracts();
+    List<Contract> getActiveContracts();
     void saveContract(Contract contract);
     Contract getContractById(long id);
     void deleteContract(long id);

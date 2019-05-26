@@ -1,6 +1,7 @@
 package com.***REMOVED***.persistence.util;
 
 import com.***REMOVED***.persistence.entity.Contract;
+import com.***REMOVED***.persistence.entity.Software;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -40,6 +41,7 @@ public class HibernateUtil {
                 settings.put(Environment.HBM2DDL_AUTO, "update");
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(Contract.class);
+                configuration.addAnnotatedClass(Software.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();

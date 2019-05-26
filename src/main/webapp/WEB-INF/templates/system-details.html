@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>System list | IT-SMS</title>
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}"/>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>IT-Systems Maintenance Software</h3>
+    <hr>
+    <h4>Current systems</h4>
+    <hr>
+    <!-- ALL CONTRACTS BUTTON -->
+    <a th:href="@{/list}" class="btn btn-secondary btn-sm mb-3">All contracts</a>
+    <!-- ACTIVE ONLY BUTTON -->
+    <a th:href="@{/listActive}" class="btn btn-secondary btn-sm mb-3">Active contracts</a>
+    <!-- SOFTWARE LIST BUTTON -->
+    <a th:href="@{/list-systems}" class="btn btn-secondary btn-sm mb-3">System list</a>
+    <!-- TABLE -->
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Record ID</th>
+            <th>System name</th>
+            <th>Description</th>
+            <th>Technology stack</th>
+            <th>Owner</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:object="${contract}">
+
+            <td th:text="${contract?.software?.id}"/>
+            <td th:text="${contract?.software?.name}"/>
+            <td th:text="${contract?.software?.description}"/>
+            <td th:text="${contract?.software?.technology}"/>
+            <td th:text="${contract?.software?.owner}"/>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
+
+
