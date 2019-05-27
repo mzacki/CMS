@@ -26,9 +26,6 @@ public class Contract {
     @Column(name = "numer_umowy")
     private String contractNumber;
 
-    @Column(name = "system")
-    private String systemName;
-
     @Column(name = "data_od")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
@@ -46,16 +43,15 @@ public class Contract {
     @Column(name = "aktywna")
     private boolean enabled;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "system_id")
     private Software software;
 
     public Contract() {
     }
 
-    public Contract(String contractNumber, String systemName, LocalDate startDate, LocalDate endDate, long income, String range, boolean enabled) {
+    public Contract(String contractNumber, LocalDate startDate, LocalDate endDate, long income, String range, boolean enabled) {
         this.contractNumber = contractNumber;
-        this.systemName = systemName;
         this.startDate = startDate;
         this.endDate = endDate;
         this.income = income;
@@ -70,7 +66,6 @@ public class Contract {
         return "Contract{" +
                 "id=" + id +
                 ", contractNumber='" + contractNumber + '\'' +
-                ", systemName='" + systemName + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", income=" + income +

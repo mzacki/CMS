@@ -14,9 +14,9 @@ public class Main {
 
         ContractDAOImplementation contractDAOImplementation = new ContractDAOImplementation();
 
-        Contract contract = new Contract("122/19", "Test2", LocalDate.now(), LocalDate.now(), 123, "monthly", true);
-        Contract contract2 = new Contract("124/19", "Nasz", LocalDate.now(), LocalDate.now(), 3342, "monthly", false);
-        Contract contract3 = new Contract("125/19", "Ich", LocalDate.now(), LocalDate.now(), 0, "yearly", true);
+        Contract contract = new Contract("122/19", LocalDate.now(), LocalDate.now(), 123, "monthly", true);
+        Contract contract2 = new Contract("124/19", LocalDate.now(), LocalDate.now(), 3342, "monthly", false);
+        Contract contract3 = new Contract("125/19", LocalDate.now(), LocalDate.now(), 0, "yearly", true);
         contractDAOImplementation.saveContract(contract);
         contractDAOImplementation.saveContract(contract2);
         contractDAOImplementation.saveContract(contract3);

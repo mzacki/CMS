@@ -14,7 +14,7 @@ import javax.servlet.ServletRegistration;
  */
 
 @Slf4j
-public class WellAppInitializer implements WebApplicationInitializer {
+public class WebAppInitializer implements WebApplicationInitializer {
 
     private static final String DISPATCHER_SERVLET_NAME = "dispatcher";
 
