@@ -10,7 +10,9 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 /**
- * Created by Matt on 21.05.2019 at 20:01.
+ * @author Created by Matt on 21.05.2019 at 20:01.
+ * Spring MVC dispatcher servlet config class.
+ * Java config alternative for web.xml.
  */
 
 @Slf4j

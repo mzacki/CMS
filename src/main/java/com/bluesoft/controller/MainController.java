@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 /**
- * Created by Matt on 21.05.2019 at 20:18.
+ * @author Created by Matt on 21.05.2019 at 20:18.
+ * Main controller for application. Contains all views except for REST controllers.
  */
 
 @Controller
@@ -30,6 +31,11 @@ public class MainController {
         this.softwareService = softwareService;
     }
 
+    @GetMapping("")
+    public String mainPage() {
+        return "redirect:/about";
+    }
+
     @GetMapping("about")
     public String about() {
         return "about";
@@ -38,6 +44,11 @@ public class MainController {
     @GetMapping("datatable")
     public String datatable() {
         return "datatable";
+    }
+
+    @GetMapping("accessDenied")
+    public String accessDenied() {
+        return "access-denied";
     }
 
 
@@ -62,11 +73,8 @@ public class MainController {
     @GetMapping("systemDetails")
     public String systemDetails(Model model, long id) {
 
-        //Software software = softwareService.getDetailedSoftware(id);
-        //model.addAttribute("system", software);
         Contract contract = contractService.getById(id);
         model.addAttribute("contract", contract);
-
 
         return "system-details";
     }

@@ -11,18 +11,25 @@ import org.hibernate.service.ServiceRegistry;
 import java.util.Properties;
 
 /**
- * Created by Matt on 24.05.2019 at 18:34.
+ * @author Created by Matt on 24.05.2019 at 18:34.
+ * Configuration class for Hibernate framework.
  */
 
 public class HibernateUtil {
 
-    /*SessionFactory - reads the hibernate config file or config settings,
-    * creates session objects,
-    * heavy-weight object to be created only once.
-    * Session - short-lived object retrieved from SessionFactory wraps a jdbc connection,
-    * main object used to save & retrieve objects from DB */
+    /**
+     * SessionFactory - reads the hibernate config file or config settings,
+     * creates session objects,
+     * heavy-weight object to be created only once.
+     * Session - short-lived object retrieved from SessionFactory wraps a jdbc connection,
+     * main object used to save & retrieve objects from DB
+     */
+
     private static SessionFactory sessionFactory;
 
+    /**
+     * @return sessionFactory
+     */
     public static SessionFactory getSessionFactory() {
 
         if (sessionFactory == null) {
@@ -31,6 +38,7 @@ public class HibernateUtil {
                 Configuration configuration = new Configuration();
                 // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
+                // credentials to be filled by the ***REMOVED***
                 settings.put(Environment.DRIVER, "org.postgresql.Driver");
                 settings.put(Environment.URL, "jdbc:postgresql://localhost:5432/***REMOVED***");
                 settings.put(Environment.USER, "postgres");

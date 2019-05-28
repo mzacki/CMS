@@ -6,10 +6,10 @@ import lombok.Setter;
 import javax.persistence.*;
 
 /**
- * Created by Matt on 24.05.2019 at 19:13.
+ * @author Created by Matt on 24.05.2019 at 19:13.
+ * Software class represents "systemy" entity in database.
+ * Class name changed from System to Software in order to avoid clashes with java.lang.System
  */
-
-// Class name changed from System to Software in order to avoid clashes with java.lang.System
 
 @Getter
 @Setter

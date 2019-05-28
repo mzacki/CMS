@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * Created by Matt on 23.05.2019 at 10:05.
+ * @author Created by Matt on 23.05.2019 at 10:05.
+ * Class testing database connection.
+ * Attention! Login credentials and database details to be completed by the ***REMOVED***
  */
 
 @WebServlet("/TestDBConnection")
@@ -17,6 +19,7 @@ public class TestDBConnection extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         String ***REMOVED*** = "postgres";
+        // Login credentials and database details to be completed by the ***REMOVED***
         String ***REMOVED*** = "***REMOVED***";
         String url = "jdbc:postgresql://localhost:5432/***REMOVED***";
         String driver = "org.postgresql.Driver";
@@ -28,8 +31,7 @@ public class TestDBConnection extends HttpServlet {
             Connection connection = DriverManager.getConnection(url, ***REMOVED***, ***REMOVED***);
             out.println("Connection works.");
             connection.close();
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

@@ -15,7 +15,8 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
 /**
- * Created by Matt on 21.05.2019 at 19:22.
+ * @author Created by Matt on 21.05.2019 at 19:22.
+ * Spring MVC web config class.
  */
 
 @EnableWebMvc
@@ -26,9 +27,11 @@ public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private ApplicationContext applicationContext;
 
-    // Thymeleaf configuration for Spring MVC according to documentation
+    /**
+     * Thymeleaf configuration for Spring MVC according to Thymeleaf documentation.
+     */
     @Bean
-    public SpringResourceTemplateResolver templateResolver(){
+    public SpringResourceTemplateResolver templateResolver() {
         // SpringResourceTemplateResolver automatically integrates with Spring's own
         // resource resolution infrastructure, which is highly recommended.
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
@@ -43,8 +46,11 @@ public class WebConfig implements WebMvcConfigurer {
         return templateResolver;
     }
 
+    /**
+     * Thymeleaf configuration for Spring MVC according to Thymeleaf documentation.
+     */
     @Bean
-    public SpringTemplateEngine templateEngine(){
+    public SpringTemplateEngine templateEngine() {
         // SpringTemplateEngine automatically applies SpringStandardDialect and
         // enables Spring's own MessageSource message resolution mechanisms.
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
@@ -58,6 +64,9 @@ public class WebConfig implements WebMvcConfigurer {
         return templateEngine;
     }
 
+    /**
+     * Thymeleaf configuration for Spring MVC according to Thymeleaf documentation.
+     */
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
@@ -65,16 +74,15 @@ public class WebConfig implements WebMvcConfigurer {
         registry.viewResolver(resolver);
     }
 
-    // Loads bootstrap and other resources from correct target location
+    /**
+     * Loads bootstrap and other resources from correct target location.
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
                 .addResourceHandler("/static/**")
                 .addResourceLocations("classpath:/static/");
     }
-
-    
-
 
 
 }

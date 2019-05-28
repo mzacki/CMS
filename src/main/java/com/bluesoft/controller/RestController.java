@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * Created by Matt on 27.05.2019 at 18:01.
+ * @author Created by Matt on 27.05.2019 at 18:01.
+ * REST controller for jquery datatables implementation.
  */
 
 @org.springframework.web.bind.annotation.RestController
@@ -27,13 +28,15 @@ public class RestController {
         this.softwareService = softwareService;
     }
 
-    @RequestMapping(value="/getList")
-    public @ResponseBody List<Contract> getList() {
+    @RequestMapping(value = "/getList")
+    public @ResponseBody
+    List<Contract> getList() {
         return contractService.getAll();
     }
 
     @RequestMapping(value = "/contract/{id}", method = RequestMethod.GET)
-    public @ResponseBody Contract getContractById(@PathVariable("id") long id){
+    public @ResponseBody
+    Contract getContractById(@PathVariable("id") long id) {
         return contractService.getById(id);
     }
 }

@@ -9,7 +9,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * Created by Matt on 24.05.2019 at 19:19.
+ * @author Created by Matt on 24.05.2019 at 19:19.
+ * Implementation of DAO interface for Software entity class.
  */
 @Component
 public class SoftwareDAOImplementation implements SoftwareDAO {

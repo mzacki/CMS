@@ -7,8 +7,6 @@ $(document).ready( function () {
             { "mData": "id"},
             { "mData": "contractNumber" },
             { "mData": "software.name" },
-            { "mData": "startDate" },
-            { "mData": "endDate" },
             { "mData": "income" },
             { "mData": "range" },
             { "mData": "enabled" }

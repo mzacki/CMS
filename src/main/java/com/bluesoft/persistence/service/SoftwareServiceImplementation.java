@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by Matt on 25.05.2019 at 11:49.
+ * @author Created by Matt on 25.05.2019 at 11:49.
+ * Service interface implementation for Software entity.
+ * Service layer separates DAO from business logic operations.
  */
 
 @Service

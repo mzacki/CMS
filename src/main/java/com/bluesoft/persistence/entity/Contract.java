@@ -8,7 +8,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
- * Created by Matt on 22.05.2019 at 19:34.
+ * @author Created by Matt on 22.05.2019 at 19:34.
+ * Contract class represents entity "umowy" in database.
  */
 
 @Getter

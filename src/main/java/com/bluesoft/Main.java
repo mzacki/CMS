@@ -7,7 +7,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * Created by Matt on 22.05.2019 at 20:08.
+ * @author Created by Matt on 22.05.2019 at 20:08.
+ * Main class with sample input to the database.
  */
 public class Main {
     public static void main(String[] args) {

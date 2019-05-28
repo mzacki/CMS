@@ -9,14 +9,15 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * Created by Matt on 22.05.2019 at 20:04.
+ * @author Created by Matt on 22.05.2019 at 20:04.
+ * Implementation of DAO interface for Contract entity class.
  */
 
 @Component
 public class ContractDAOImplementation implements ContractDAO {
 
 
-    // HQL statement gives false positive in IDE
+    // HQL statement may give false positive in IntelliJ IDE
     @Override
     public List<Contract> getContracts() {
 
