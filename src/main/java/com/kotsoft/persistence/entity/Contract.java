@@ -15,16 +15,15 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
-@Table(name = "umowy")
+@Table(name = "contract")
 public class Contract {
 
-    // redundant name="id" for the sake of clarity
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
 
-    @Column(name = "numer_umowy")
+    @Column(name = "contract_number")
     private String contractNumber;
 
     @Column(name = "data_od")
@@ -60,8 +59,6 @@ public class Contract {
         this.enabled = enabled;
     }
 
-
-    // add toString() for debugging purposes
     @Override
     public String toString() {
         return "Contract{" +

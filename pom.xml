@@ -111,6 +111,13 @@
             <artifactId>postgresql</artifactId>
             <version>${postgres.version}</version>
         </dependency>
+        <!-- liquibase -->
+        <!--Liquibase autoconfigures and runs - but requires this dependency in the classpath to do so-->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+        </dependency>
+
         <!-- testing -->
         <dependency>
             <groupId>junit</groupId>
@@ -174,6 +181,59 @@
                         <type>embedded</type>
                     </container>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <configuration>
+                    <changeLogFile>changelog/changelog-master.xml</changeLogFile>
+                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <artifactId>liquibase-hibernate5</artifactId>
+                        <groupId>org.liquibase.ext</groupId>
+                        <version>3.6</version>
+                    </dependency>
+                    <dependency>
+                        <artifactId>spring-boot-starter-data-jpa</artifactId>
+                        <groupId>org.springframework.boot</groupId>
+                        <version>2.1.1.RELEASE</version>
+                    </dependency>
+                    <dependency>
+                        <artifactId>validation-api</artifactId>
+                        <groupId>javax.validation</groupId>
+                        <version>2.0.1.Final</version>
+                    </dependency>
+                    <dependency>
+                        <artifactId>javassist</artifactId>
+                        <groupId>org.javassist</groupId>
+                        <version>3.24.0-GA</version>
+                    </dependency>
+                    <dependency>
+                        <artifactId>spring-beans</artifactId>
+                        <groupId>org.springframework</groupId>
+                        <version>5.1.2.RELEASE</version>
+                    </dependency>
+
+                </dependencies>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                        <id>update-profile</id>
+                        <phase>process-resources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>diff</goal>
+                        </goals>
+                        <id>diff-profile</id>
+                        <phase>process-test-resources</phase>
+                    </execution>
+                </executions>
+                <groupId>org.liquibase</groupId>
+                <version>3.5.5</version>
             </plugin>
         </plugins>
     </build>
