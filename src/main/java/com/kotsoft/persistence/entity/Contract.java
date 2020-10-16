@@ -26,21 +26,21 @@ public class Contract {
     @Column(name = "contract_number")
     private String contractNumber;
 
-    @Column(name = "data_od")
+    @Column(name = "start_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
-    @Column(name = "data_do")
+    @Column(name = "end_date")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
 
-    @Column(name = "wplywy")
+    @Column(name = "income")
     private long income;
 
-    @Column(name = "skala")
+    @Column(name = "range")
     private String range;
 
-    @Column(name = "aktywna")
+    @Column(name = "enabled")
     private boolean enabled;
 
     @OneToOne(cascade = CascadeType.PERSIST)
