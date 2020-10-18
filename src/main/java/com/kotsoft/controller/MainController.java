@@ -22,8 +22,9 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    private ContractService contractService;
-    private SoftwareService softwareService;
+    private final ContractService contractService;
+    private final SoftwareService softwareService;
+    private static final String REDIRECT_TO_LIST = "redirect:/list";
 
     @Autowired
     public MainController(ContractService contractService, SoftwareService softwareService) {
@@ -108,7 +109,7 @@ public class MainController {
     public String saveContract(@ModelAttribute("contract") Contract contract) {
 
         contractService.save(contract);
-        return "redirect:/list";
+        return REDIRECT_TO_LIST;
     }
 
     @GetMapping("disable")
@@ -117,14 +118,14 @@ public class MainController {
         Contract contract = contractService.getById(id);
        // contract.setEnabled(false);
         contractService.save(contract);
-        return "redirect:/list";
+        return REDIRECT_TO_LIST;
     }
 
     @GetMapping("delete")
     public String delete(@RequestParam("id") long id) {
 
         contractService.delete(id);
-        return "redirect:/list";
+        return REDIRECT_TO_LIST;
     }
 
 }

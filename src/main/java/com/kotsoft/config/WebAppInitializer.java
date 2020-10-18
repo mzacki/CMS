@@ -24,16 +24,11 @@ public class WebAppInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
 
-        //log.info("onStartup");
-
-        // create Spring Application Context
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(WebConfig.class);
 
-        // create Dispatcher Servlet
         DispatcherServlet dispatcherServlet = new DispatcherServlet(context);
 
-        // register and configure Dispatcher Servlet
         ServletRegistration.Dynamic registration = servletContext.addServlet(DISPATCHER_SERVLET_NAME,
                 dispatcherServlet);
         registration.setLoadOnStartup(1);

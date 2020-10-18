@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 /**
  * @author Created by Matt on 22.05.2019 at 19:34.
- * Contract class represents entity "umowy" in database.
+ * Contract class represents entity "contract" in database.
  */
 
 @Getter

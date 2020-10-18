@@ -30,6 +30,7 @@ public class HibernateUtil {
     /**
      * @return sessionFactory
      */
+
     public static SessionFactory getSessionFactory() {
 
         if (sessionFactory == null) {
@@ -63,4 +64,5 @@ public class HibernateUtil {
 
         return sessionFactory;
     }
+
 }

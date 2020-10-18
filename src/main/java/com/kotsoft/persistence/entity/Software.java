@@ -7,32 +7,31 @@ import javax.persistence.*;
 
 /**
  * @author Created by Matt on 24.05.2019 at 19:13.
- * Software class represents "systemy" entity in database.
+ * Software class represents "system" entity in database.
  * Class name changed from System to Software in order to avoid clashes with java.lang.System
  */
 
 @Getter
 @Setter
 @Entity
-@Table(name="systemy")
+@Table(name="system")
 public class Software {
 
-    // redundant name="id" for the sake of clarity
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private long id;
 
-    @Column(name="nazwa")
+    @Column(name="name")
     private String name;
 
-    @Column(name="opis")
+    @Column(name="description")
     private String description;
 
-    @Column(name="technologie")
+    @Column(name="technology")
     private String technology;
 
-    @Column(name="posiadacz")
+    @Column(name="owner")
     private String owner;
 
     public Software() {}
@@ -44,7 +43,6 @@ public class Software {
         this.owner = owner;
     }
 
-    // add toString() for debugging purposes
     @Override
     public String toString() {
         return "Software{" +

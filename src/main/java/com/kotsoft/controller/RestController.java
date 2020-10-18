@@ -20,12 +20,10 @@ import java.util.List;
 public class RestController {
 
     private ContractService contractService;
-    private SoftwareService softwareService;
 
     @Autowired
-    public RestController(ContractService contractService, SoftwareService softwareService) {
+    public RestController(ContractService contractService) {
         this.contractService = contractService;
-        this.softwareService = softwareService;
     }
 
     @RequestMapping(value = "/getList")
