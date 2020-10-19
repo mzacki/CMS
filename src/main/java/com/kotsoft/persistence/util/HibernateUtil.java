@@ -41,7 +41,7 @@ public class HibernateUtil {
                 Properties settings = new Properties();
                 // credentials to be filled by the ***REMOVED***
                 settings.put(Environment.DRIVER, "org.postgresql.Driver");
-                settings.put(Environment.URL, "jdbc:postgresql://localhost:5432/Kotsoft");
+                settings.put(Environment.URL, "jdbc:postgresql://localhost:5432/postgres");
                 settings.put(Environment.USER, "postgres");
                 settings.put(Environment.PASS, "***REMOVED***");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");

@@ -2,14 +2,12 @@ package com.kotsoft.controller;
 
 import com.kotsoft.persistence.entity.Contract;
 import com.kotsoft.persistence.service.ContractService;
-import com.kotsoft.persistence.service.SoftwareService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.List;
 
 /**
  * @author Created by Matt on 27.05.2019 at 18:01.

@@ -21,7 +21,7 @@ public class TestDBConnection extends HttpServlet {
         String ***REMOVED*** = "postgres";
         // Login credentials and database details to be completed by the ***REMOVED***
         String ***REMOVED*** = "***REMOVED***";
-        String url = "jdbc:postgresql://localhost:5432/Kotsoft";
+        String url = "jdbc:postgresql://localhost:5432/postgres";
         String driver = "org.postgresql.Driver";
 
         try {
