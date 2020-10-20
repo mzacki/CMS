@@ -22,12 +22,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
         auth.inMemoryAuthentication()
-                .withUser("***REMOVED***")
-                .***REMOVED***word("{noop}***REMOVED***")
+                .withUser("")
+                .***REMOVED***word("{noop}")
                 .roles("USER")
                 .and()
-                .withUser("***REMOVED***")
-                .***REMOVED***word("{noop}***REMOVED***")
+                .withUser("")
+                .***REMOVED***word("{noop}")
                 .roles("ADMIN");
     }
 

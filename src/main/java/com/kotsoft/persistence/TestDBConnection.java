@@ -18,9 +18,9 @@ import java.sql.DriverManager;
 public class TestDBConnection extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-        String ***REMOVED*** = "postgres";
+        String ***REMOVED*** = "";
         // Login credentials and database details to be completed by the ***REMOVED***
-        String ***REMOVED*** = "***REMOVED***";
+        String ***REMOVED*** = "";
         String url = "jdbc:postgresql://localhost:5432/postgres";
         String driver = "org.postgresql.Driver";
 
