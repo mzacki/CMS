@@ -43,8 +43,8 @@ public class HibernateUtil {
                 // credentials to be filled by the ***REMOVED***
                 settings.put(AvailableSettings.DRIVER, "org.postgresql.Driver");
                 settings.put(AvailableSettings.URL, "jdbc:postgresql://localhost:5432/postgres");
-                settings.put(AvailableSettings.USER, "postgres");
-                settings.put(AvailableSettings.PASS, "***REMOVED***");
+                settings.put(AvailableSettings.USER, "");
+                settings.put(AvailableSettings.PASS, "");
                 settings.put(AvailableSettings.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
                 settings.put(AvailableSettings.SHOW_SQL, "true");
                 settings.put(AvailableSettings.CURRENT_SESSION_CONTEXT_CLASS, "thread");
