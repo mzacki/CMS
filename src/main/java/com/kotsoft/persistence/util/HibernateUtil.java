@@ -40,7 +40,7 @@ public class HibernateUtil {
                 Configuration configuration = new Configuration();
                 // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
-                // credentials to be filled by the ***REMOVED***
+                // credentials to be filled by the user
                 settings.put(AvailableSettings.DRIVER, "org.postgresql.Driver");
                 settings.put(AvailableSettings.URL, "jdbc:postgresql://localhost:5432/postgres");
                 settings.put(AvailableSettings.USER, "");

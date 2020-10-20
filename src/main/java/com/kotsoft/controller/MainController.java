@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 /**
- * @author Created by Matt on 21.05.2019 at 20:18.
- * Main controller for application. Contains all views except for REST controllers.
+ * @author Created by Matt on 21.05.2019 at 20:18. Main controller for application. Contains all views except for REST
+ * controllers.
  */
 
 @Controller
@@ -25,6 +25,7 @@ public class MainController {
     private final ContractService contractService;
     private final SoftwareService softwareService;
     private static final String REDIRECT_TO_LIST = "redirect:/list";
+    private static final String CONTRACT = "contract";
 
     @Autowired
     public MainController(ContractService contractService, SoftwareService softwareService) {
@@ -75,7 +76,7 @@ public class MainController {
     public String systemDetails(Model model, long id) {
 
         Contract contract = contractService.getById(id);
-        model.addAttribute("contract", contract);
+        model.addAttribute(CONTRACT, contract);
 
         return "system-details";
     }
@@ -93,7 +94,7 @@ public class MainController {
     public String showAddForm(Model model) {
 
         Contract contract = new Contract();
-        model.addAttribute("contract", contract);
+        model.addAttribute(CONTRACT, contract);
         return "new-contract-form";
     }
 
@@ -101,7 +102,7 @@ public class MainController {
     public String showUpdateForm(@RequestParam("id") long id, Model model) {
 
         Contract contract = contractService.getById(id);
-        model.addAttribute("contract", contract);
+        model.addAttribute(CONTRACT, contract);
         return "contract-form";
     }
 
@@ -116,7 +117,7 @@ public class MainController {
     public String disableContract(@RequestParam long id) {
 
         Contract contract = contractService.getById(id);
-       // contract.setEnabled(false);
+        contract.setEnabled(false);
         contractService.save(contract);
         return REDIRECT_TO_LIST;
     }

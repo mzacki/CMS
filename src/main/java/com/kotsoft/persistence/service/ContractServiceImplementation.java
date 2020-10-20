@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class ContractServiceImplementation implements ContractService {
 
-    private ContractDAO contractDAO;
+    private final ContractDAO contractDAO;
 
     @Autowired
     public ContractServiceImplementation(ContractDAO contractDAO) {

@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * @author Created by Matt on 28.05.2019 at 08:25.
  * Sample in memory authentication secures the app.
  * Needs to be replaced by database authentication and USER / ADMIN entities.
- * Default credential can be changed by the ***REMOVED*** for testing purposes.
+ * Default credential can be changed by the user for testing purposes.
  */
 
 @Configuration
@@ -23,11 +23,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.inMemoryAuthentication()
                 .withUser("")
-                .***REMOVED***word("{noop}")
+                .password("{noop}")
                 .roles("USER")
                 .and()
                 .withUser("")
-                .***REMOVED***word("{noop}")
+                .password("{noop}")
                 .roles("ADMIN");
     }
 

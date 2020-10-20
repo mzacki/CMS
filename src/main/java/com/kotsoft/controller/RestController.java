@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
 
-    private ContractService contractService;
+    private final ContractService contractService;
 
     @Autowired
     public RestController(ContractService contractService) {

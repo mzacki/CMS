@@ -11,16 +11,17 @@ import java.sql.DriverManager;
 /**
  * @author Created by Matt on 23.05.2019 at 10:05.
  * Class testing database connection.
- * Attention! Login credentials and database details to be completed by the ***REMOVED***
+ * Attention! Login credentials and database details to be completed by the user
  */
 
 @WebServlet("/TestDBConnection")
 public class TestDBConnection extends HttpServlet {
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-        String ***REMOVED*** = "";
-        // Login credentials and database details to be completed by the ***REMOVED***
-        String ***REMOVED*** = "";
+        String user = "";
+        // Login credentials and database details to be completed by the user
+        String pass = "";
         String url = "jdbc:postgresql://localhost:5432/postgres";
         String driver = "org.postgresql.Driver";
 
@@ -28,9 +29,9 @@ public class TestDBConnection extends HttpServlet {
             PrintWriter out = response.getWriter();
             out.println("Connecting to the database " + url);
             Class.forName(driver);
-            Connection connection = DriverManager.getConnection(url, ***REMOVED***, ***REMOVED***);
-            out.println("Connection works.");
-            connection.close();
+            try (Connection connection = DriverManager.getConnection(url, user, pass)) {
+                out.println("Connection works.");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

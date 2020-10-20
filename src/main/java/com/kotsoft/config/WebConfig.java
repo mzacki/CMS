@@ -24,8 +24,13 @@ import org.thymeleaf.templatemode.TemplateMode;
 @ComponentScan(basePackages = "com.kotsoft")
 public class WebConfig implements WebMvcConfigurer {
 
+
+    private final ApplicationContext applicationContext;
+
     @Autowired
-    private ApplicationContext applicationContext;
+    public WebConfig(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
+    }
 
     /**
      * Thymeleaf configuration for Spring MVC according to Thymeleaf documentation.
